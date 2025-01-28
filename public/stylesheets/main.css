@@ -1,0 +1,105 @@
+.card-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 4rem;
+    margin-block: 1rem;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-main article.main-article {
+    font-size: large;
+    font-weight: 500;
+    background-color: #c1f7f5;
+    padding: 40px;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 42rem;
+}
+
+.card-main article.main-article strong{
+    font-size: larger;
+}
+
+.card-pricing {
+    gap: 2rem;
+    margin-block: 1rem;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-pricing h1.title {
+    margin-block: 0 20px;
+}
+
+div.grid-layout {
+    gap: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+div.grid-layout div.pricing-block {
+    border-radius: 8px;
+    border: 2px solid rgba(0, 0, 0, 0.20);
+    padding: 20px;
+    width: 100%;
+    max-width: 250px;
+}
+
+div.pricing-block p.price {
+    font-size: 1.2rem;
+}
+
+div.pricing-block p.price strong {
+    font-size: 2.5rem;
+}
+
+div.pricing-block div.title-block {
+    gap: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.pricing-block div.title-block p.price-title {
+    font-size: 1.1rem;
+}
+
+div.pricing-block div.title-block p.popularity {
+    background-color: #34efdf;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+div.pricing-block button.price-button {
+    color: black;
+    text-decoration: none;
+    background-color: #97979770;
+    font-size: 16px;
+    border: none;
+    padding: 8px;
+    margin-block: 0.6rem;
+    border-radius: 6px;
+    font-weight: 500;
+    width: 100%;
+    max-width: 200px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+div.pricing-block button.price-button:hover {
+    background-color: #979797d2;
+}
+
+div.pricing-block div.benefit-list p{
+    margin-block: 0.6rem;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.75);
+}
