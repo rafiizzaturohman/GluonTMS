@@ -23,7 +23,6 @@ function login($email, $password) {
         if ($result->num_rows > 0) {
             $user = $result->fetch_assoc();
 
-            // Verify the password against the hashed password
             if (password_verify($password, $user['password_hash'])) {
                 session_start();
                 $_SESSION['email'] = $user['email'];

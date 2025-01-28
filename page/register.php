@@ -28,7 +28,7 @@
             <ul class="nav-links">
                 <li class="backward"><a href="../index.php">Home</a></li>
                 <li class="center"><a href="../index.php">Pricing</a></li>
-                <li class="forward"><a class="login" href="#">Log In</a></li>
+                <li class="forward"><a class="login" href="./login.php">Log In</a></li>
             </ul>
         </div>
         <!-- &#9776; -->

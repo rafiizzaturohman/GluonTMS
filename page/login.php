@@ -22,11 +22,12 @@
                 <img src="../assets/images/nav-logo.png" alt="GTMS Logo">
             </a>
         </div>
+        
         <div>
             <ul class="nav-links">
                 <li class="backward"><a href="../index.php">Home</a></li>
                 <li class="center"><a href="../index.php">Pricing</a></li>
-                <li class="forward"><a class="login" href="#">Sign Up</a></li>
+                <li class="forward"><a class="login" href="./register.php">Sign Up</a></li>
             </ul>
         </div>
     </header>

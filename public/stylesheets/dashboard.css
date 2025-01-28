@@ -1,0 +1,21 @@
+.dashboard {
+  align-items: center;
+  gap: 4rem;
+  margin-block: 1rem;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links li a.logout {
+    background-color: #c4c4c471;
+    padding: 4px 6px 4px 6px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-links li a.logout:hover {
+    background-color: transparent;
+    padding: 4px 6px 4px 6px;
+  }
