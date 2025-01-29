@@ -111,6 +111,18 @@
   padding: 4px 6px 4px 6px;
 }
 
+.nav-links li a.logout {
+  background-color: #c4c4c471;
+  padding: 4px 6px 4px 6px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links li a.logout:hover {
+  background-color: transparent;
+  padding: 4px 6px 4px 6px;
+}
+
 footer.main-footer {
   color: rgba(0, 0, 0, 0.432);
   width: auto;
