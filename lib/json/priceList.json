@@ -1,0 +1,47 @@
+[
+    {
+        "title": "Free",
+        "popularity": "Popular", 
+        "price": "0",
+        "buttonText": "Sign Up",
+        "benefits": {
+            "one": "14 Days Trial",
+            "two": "Basic Feature",
+            "three": "Limited Users",
+            "four": "Email Support"
+        }
+    }, 
+    {
+        "title": "Starter",
+        "popularity": "Best Value", 
+        "price": "10",
+        "buttonText": "Sign Up",
+        "benefits": {
+            "two": "Basic Feature",
+            "three": "Limited Users",
+            "four": "Email Support"
+        }
+    },
+    {
+        "title": "Pro",
+        "popularity": "Custom", 
+        "price": "20",
+        "buttonText": "Sign Up",
+        "benefits": {
+            "two": "All Features",
+            "three": "Unlimited Users",
+            "four": "Priority Support"
+        }
+    },
+    {
+        "title": "Enterprise",
+        "popularity": "Specials", 
+        "price": "30",
+        "buttonText": "Contact Us",
+        "benefits": {
+            "one": "Custom Features",
+            "three": "Dedicated Support",
+            "four": "SLA Guarantee"
+        }
+    }
+]

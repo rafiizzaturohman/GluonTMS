@@ -1,54 +1,12 @@
 <?php
-$priceList = '[
-    {
-        "title": "Free",
-        "popularity": "Popular", 
-        "price": "0",
-        "buttonText": "Sign Up",
-        "benefits": {
-            "one": "14 Days Trial",
-            "two": "Basic Feature",
-            "three": "Limited Users",
-            "four": "Email Support"
-        }
-    }, 
-    {
-        "title": "Starter",
-        "popularity": "Best Value", 
-        "price": "10",
-        "buttonText": "Sign Up",
-        "benefits": {
-            "two": "Basic Feature",
-            "three": "Limited Users",
-            "four": "Email Support"
-        }
-    },
-    {
-        "title": "Pro",
-        "popularity": "Custom", 
-        "price": "20",
-        "buttonText": "Sign Up",
-        "benefits": {
-            "two": "All Features",
-            "three": "Unlimited Users",
-            "four": "Priority Support"
-        }
-    },
-    {
-        "title": "Enterprise",
-        "popularity": "", 
-        "price": "30",
-        "buttonText": "Contact Us",
-        "benefits": {
-            "one": "Custom Features",
-            "three": "Dedicated Support",
-            "four": "SLA Guarantee"
-        }
-    }
-]';
 
-// Decode the JSON string
-$priceListDecode = json_decode($priceList, true);
+$priceListJsonPath = './lib/json/priceList.json';
+
+if ($priceListJsonPath === false) {
+    die('Error reading the price list JSON file');
+}
+
+$priceList = json_decode(file_get_contents($priceListJsonPath), true);
 ?>
 
 <!DOCTYPE html>
@@ -107,7 +65,7 @@ $priceListDecode = json_decode($priceList, true);
 
             <div class="grid-layout">
                 <?php
-                foreach ($priceListDecode as $items) {
+                foreach ($priceList as $items) {
 
                     echo '<div class="pricing-block">';
                     echo '<div class="title-block">';
