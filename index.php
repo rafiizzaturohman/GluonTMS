@@ -69,6 +69,7 @@ $priceListDecode = json_decode($priceList, true);
 </head>
 
 <body>
+    
     <header class="nav-header">
         <div class="nav-logo">
             <a href="#main-index">

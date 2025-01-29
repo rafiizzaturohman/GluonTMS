@@ -43,12 +43,12 @@
                     <div class="grid-layout">
                         <div class="input-group">
                             <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" class="input-form" required>
+                            <input type="text" id="firstName" placeholder="Enter your first name" name="firstName" class="input-form" required>
                         </div>
 
                         <div class="input-group">
                             <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" class="input-form" required>
+                            <input type="text" id="lastName" placeholder="Enter your last name" name="lastName" class="input-form" required>
                         </div>
                     </div>
                 </div>
@@ -56,18 +56,26 @@
                 <div class="input-block">
                     <div class="input-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" class="input-form" required>
+                        <input type="email" id="email" placeholder="Enter your email" name="email" class="input-form" required>
                     </div>
 
                     <div class="input-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" class="input-form" required>
+                        <input type="password" id="password" placeholder="Enter your password" name="password" class="input-form" required>
                     </div>
 
                     <div class="input-group">
                         <label for="retype-password">Retype Password</label>
-                        <input type="password" id="retype-password" name="retype-password" class="input-form" required>
+                        <input type="password" id="retype-password" placeholder="Enter your password again" name="retype-password" class="input-form" required>
                     </div>
+
+                    <?php if (isset($_GET['msg'])): ?>
+                        <p style="color: red;">
+                            <?php
+                            if ($_GET['msg'] == 'password_not_match') echo "Password does not match!";
+                            ?>
+                        </p>
+                    <?php endif; ?>
                 </div>
 
                 <div class="block-button">
