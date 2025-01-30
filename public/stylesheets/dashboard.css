@@ -1,21 +1,21 @@
-section.dashboard-card {
+section.dashboard-box {
   align-items: center;
   gap: 4rem;
-  margin-block: 0.5rem;
-  padding: 20px;
-  border-radius: 12px;
-  background-color: white;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-section.dashboard-card hr {
+hr {
   border: 1px solid rgba(175, 175, 175, 0.4);
 }
 
-section.dashboard-card hr,
-section.dashboard-card h3
-{
-  margin-block: 0 20px;
+div.dashboard-box h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+section.card-box h3 {
+  margin-top: 1rem;
+  font-weight: 600;
+
 }
 
 div.overview-card {
@@ -60,6 +60,7 @@ div.grid-layout-overview {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-block: 1.5rem;
 }
 
 
@@ -148,4 +149,84 @@ div.pricing-block div.benefit-list p {
   margin-block: 0.6rem;
   align-items: center;
   color: rgba(0, 0, 0, 0.75);
+}
+
+div.task-box {
+  margin-top: 4rem;
+}
+
+div.task-box table {
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f81f;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
 }

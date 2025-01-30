@@ -126,7 +126,7 @@
 footer.main-footer {
   color: rgba(0, 0, 0, 0.432);
   width: auto;
-  margin: 8px 0;
+  margin-block: 1rem;
   padding: 10px 20px;
   text-align: center;
   border-radius: 12px;

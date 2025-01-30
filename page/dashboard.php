@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('../routes/routes.php');
 
 if (!isset($_SESSION['email'])) {
     header("Location: ../index.php");
@@ -50,64 +51,81 @@ $priceList = json_decode(file_get_contents($priceListJsonPath), true);
     </header>
 
     <main>
-        <section id="dashboard" class="dashboard-card">
-            <h1>Gluon Dashboard</h1>
-            <hr>
-            <h3>Overview</h3>
+        <section id="dashboard" class="card-box">
+            <div class="dashboard-box">
+                <h1>Overview</h1>
+                <hr>
+                <h3>Task Status</h4>
 
-            <div class="grid-layout-overview">
-                <div class="overview-card">
-                    <p>Resolved</p>
+                    <div class="grid-layout-overview">
+                        <div class="overview-card">
+                            <p>Resolved</p>
 
-                    <h1>31</h1>
-                </div>
-                <div class="overview-card">
-                    <p>On Progress</p>
+                            <h1 id="completed"><?= $completedCount; ?></h1>
+                        </div>
+                        <div class="overview-card">
+                            <p>On Progress</p>
 
-                    <h1>18</h1>
-                </div>
-                <div class="overview-card">
-                    <p>Not Yet Started</p>
+                            <h1><?= $inProgressCount; ?></h1>
+                        </div>
+                        <div class="overview-card">
+                            <p>Pending</p>
 
-                    <h1>6</h1>
-                </div>
+                            <h1><?= $pendingCount; ?></h1>
+                        </div>
+                    </div>
             </div>
+
+            <div class="task-box">
+                <h3>Task List</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Account</th>
+                            <th scope="col">Due Date</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Period</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row" data-label="Account">Visa - 3412</td>
+                            <td data-label="Due Date">04/01/2016</td>
+                            <td data-label="Amount">$1,190</td>
+                            <td data-label="Period">03/01/2016 - 03/31/2016</td>
+                        </tr>
+                        <tr>
+                            <td scope="row" data-label="Account">Visa - 6076</td>
+                            <td data-label="Due Date">03/01/2016</td>
+                            <td data-label="Amount">$2,443</td>
+                            <td data-label="Period">02/01/2016 - 02/29/2016</td>
+                        </tr>
+                        <tr>
+                            <td scope="row" data-label="Account">Corporate AMEX</td>
+                            <td data-label="Due Date">03/01/2016</td>
+                            <td data-label="Amount">$1,181</td>
+                            <td data-label="Period">02/01/2016 - 02/29/2016</td>
+                        </tr>
+                        <tr>
+                            <td scope="row" data-label="Acount">Visa - 3412</td>
+                            <td data-label="Due Date">02/01/2016</td>
+                            <td data-label="Amount">$842</td>
+                            <td data-label="Period">01/01/2016 - 01/31/2016</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </section>
 
-        <section id="task" class="task-card">
-            <h3>Task List</h3>
-
-            <div class="grid-layout">
-                <div class="card-list">
-                    <div>
-                        <h4>COY</h4>
-                    </div>
-                </div>
-                <div class="card-list">
-                    <div>
-                        <h4>COY</h4>
-                    </div>
-                </div>
-                <div class="card-list">
-                    <div>
-                        <h4>COY</h4>
-                    </div>
-                </div>
-                <div class="card-list">
-                    <div>
-                        <h4>COY</h4>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="pricing" class="card-pricing">
+        <section id="pricing" class="card-box">
+            <div class="price-box"></div>
             <h1 class="title">Pricing</h1>
 
             <div class="grid-layout">
                 <?php
                 foreach ($priceList as $items) {
-
                     echo '<div class="pricing-block">';
                     echo '<div class="title-block">';
                     echo '<p class="price-title">';

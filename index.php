@@ -27,7 +27,7 @@ $priceList = json_decode(file_get_contents($priceListJsonPath), true);
 </head>
 
 <body>
-    
+
     <header class="nav-header">
         <div class="nav-logo">
             <a href="#main-index">
@@ -44,19 +44,21 @@ $priceList = json_decode(file_get_contents($priceListJsonPath), true);
     </header>
 
     <main id="main-index">
-        <section id="about" class="card-main">
-            <div>
-                <img src="./assets/images/main-logo.png" alt="GTMS">
-            </div>
-
-            <div>
-                <article class="main-article">
-                    <strong>Gluon: Task Management System</strong><br />
-                    is a web-based application to manage tasks for each user similar to a todo list.
-                    <br />
-                    <br />
-                    It can be used by any team or individual to manage their work. It's designed to help you stay organized and focused, so you can get more done.
-                </article>
+        <section id="about" class="card-box">
+            <div class="main-container">
+                <div>
+                    <img src="./assets/images/main-logo.png" alt="GTMS">
+                </div>
+                
+                <div>
+                    <article class="main-article">
+                        <strong>Gluon: Task Management System</strong><br />
+                        is a web-based application to manage tasks for each user similar to a todo list.
+                        <br />
+                        <br />
+                        It can be used by any team or individual to manage their work. It's designed to help you stay organized and focused, so you can get more done.
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -81,9 +83,9 @@ $priceList = json_decode(file_get_contents($priceListJsonPath), true);
                     echo '<strong>&#x24;' . htmlspecialchars($items['price'] ?? '0') . '</strong>/month';
                     echo '</p>';
                     if ($items['buttonText'] !== 'Sign Up') {
-                        echo '<button onclick="window.open(\'https://www.whatsapp.com\', \'_blank\')" class="price-button">'.htmlspecialchars($items['buttonText']).'</button>';
+                        echo '<button onclick="window.open(\'https://www.whatsapp.com\', \'_blank\')" class="price-button">' . htmlspecialchars($items['buttonText']) . '</button>';
                     } else {
-                        echo '<button onclick="location.href=\'./page/register.php\'" class="price-button">'.htmlspecialchars($items['buttonText']).'</button>';
+                        echo '<button onclick="location.href=\'./page/register.php\'" class="price-button">' . htmlspecialchars($items['buttonText']) . '</button>';
                     }
                     echo '</div>';
 

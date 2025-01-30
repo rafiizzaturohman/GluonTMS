@@ -33,37 +33,39 @@
     </header>
 
     <main>
-        <section id="login-form" class="login-form">
-            <h1 class="login-title">Welcome to Gluon: Task Management System</h1>
-
-            <form action="../functions/login.php" method="post">
-                <div>
-                    <div class="input-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="Enter your email" name="email" class="input-form" required>
+        <section id="login-form" class="card-box">
+            <div class="login-form">
+                <h1 class="login-title">Login to Gluon: Task Management System</h1>
+    
+                <form action="../functions/login.php" method="post">
+                    <div>
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Enter your email" name="email" class="input-form" required>
+                        </div>
+    
+                        <div class="input-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" placeholder="Enter your password" name="password" class="input-form" required>
+                        </div>
                     </div>
-
-                    <div class="input-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" placeholder="Enter your password" name="password" class="input-form" required>
+    
+                    <?php if (isset($_GET['msg'])): ?>
+                        <p style="color: red;">
+                            <?php
+                            if ($_GET['msg'] == 'email_not_found') echo "Email not found!";
+                            if ($_GET['msg'] == 'wrong_password') echo "Wrong Password!";
+                            ?>
+                        </p>
+                    <?php endif; ?>
+    
+                    <div class="block-button">
+                        <a href="./register.php" class="reg-link">Does not have an account yet?</a>
+    
+                        <button type="submit" class="login-btn">Log In</button>
                     </div>
-                </div>
-
-                <?php if (isset($_GET['msg'])): ?>
-                    <p style="color: red;">
-                        <?php
-                        if ($_GET['msg'] == 'email_not_found') echo "Email not found!";
-                        if ($_GET['msg'] == 'wrong_password') echo "Wrong Password!";
-                        ?>
-                    </p>
-                <?php endif; ?>
-
-                <div class="block-button">
-                    <a href="./register.php" class="reg-link">Does not have an account yet?</a>
-
-                    <button type="submit" class="login-btn">Log In</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </section>
     </main>
 
