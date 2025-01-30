@@ -19,19 +19,6 @@
   font-size: larger;
 }
 
-.card-pricing {
-  gap: 2rem;
-  margin-block: 1rem;
-  padding: 20px;
-  border-radius: 12px;
-  background-color: white;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.card-pricing h1.title {
-  margin-block: 0 20px;
-}
-
 section.card-pricing {
   gap: 2rem;
   margin-block: 0.5rem;
@@ -71,7 +58,7 @@ section.card-pricing {
 }
 
 section.card-pricing h1.title {
-  margin-block: 0 20px;
+  margin-bottom: 0 20px;
 }
 
 div.grid-layout div.pricing-block {
