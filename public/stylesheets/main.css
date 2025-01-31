@@ -34,16 +34,7 @@ div.grid-layout div.card-list {
   max-width: 250px;
 }
 
-section.card-pricing {
-  gap: 2rem;
-  margin-block: 0.5rem;
-  padding: 20px;
-  border-radius: 12px;
-  background-color: white;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-section.card-pricing h1.title {
+section.card-box h1.title {
   margin-bottom: 1.5rem;
 }
 

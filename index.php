@@ -62,7 +62,7 @@ $priceList = json_decode(file_get_contents($priceListJsonPath), true);
             </div>
         </section>
 
-        <section id="pricing" class="card-pricing">
+        <section id="pricing" class="card-box">
             <h1 class="title">Pricing</h1>
 
             <div class="grid-layout">

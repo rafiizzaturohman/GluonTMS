@@ -71,16 +71,7 @@ div.grid-layout div.card-list {
   max-width: 250px;
 }
 
-section.card-pricing {
-  gap: 2rem;
-  margin-block: 0.5rem;
-  padding: 20px;
-  border-radius: 12px;
-  background-color: white;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-section.card-pricing h1.title {
+section.card-box h1.title {
   margin-bottom: 1.5rem;
 }
 
@@ -149,21 +140,37 @@ div.pricing-block div.benefit-list p {
   color: rgba(0, 0, 0, 0.75);
 }
 
-div.task-box {
+div.box-box {
   margin-top: 4rem;
 }
 
-div.task-box table {
+div.box-box div.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 10px;
+}
+
+div.box-box div.flex a {
+  text-decoration: none;
+  color: black;
+  background-color: #34efdf;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+div.box-box div.flex a:hover {
+  background-color: #34efdf77;
+}
+
+
+div.box-box table {
   border-collapse: collapse;
   margin: 0;
   padding: 0;
   width: 100%;
   table-layout: fixed;
-}
-
-table caption {
-  font-size: 1.5em;
-  margin: .5em 0 .75em;
 }
 
 table tr {

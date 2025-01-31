@@ -40,7 +40,7 @@
                 <form action="../functions/login.php" method="post">
                     <div>
                         <div class="input-group">
-                            <label for="email">Email</label>
+                            <label for="email">E-mail</label>
                             <input type="email" id="email" placeholder="Enter your email" name="email" class="input-form" required>
                         </div>
     

@@ -31,7 +31,6 @@
                 <li class="forward"><a class="login" href="./login.php">Log In</a></li>
             </ul>
         </div>
-        <!-- &#9776; -->
     </header>
 
     <main>
@@ -56,7 +55,7 @@
     
                     <div class="input-block">
                         <div class="input-group">
-                            <label for="email">Email</label>
+                            <label for="email">E-mail</label>
                             <input type="email" id="email" placeholder="Enter your email" name="email" class="input-form" required>
                         </div>
     

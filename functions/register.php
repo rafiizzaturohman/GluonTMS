@@ -1,5 +1,5 @@
 <?php 
-include('../routes/routes.php');
+include('../routes/register-routes.php');
 
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];

@@ -55,72 +55,130 @@ $priceList = json_decode(file_get_contents($priceListJsonPath), true);
             <div class="dashboard-box">
                 <h1>Overview</h1>
                 <hr>
-                <h3>Task Status</h4>
 
-                    <div class="grid-layout-overview">
-                        <div class="overview-card">
-                            <p>Resolved</p>
+                <h3>Task Status</h3>
 
-                            <h1 id="completed"><?= $completedCount; ?></h1>
-                        </div>
-                        <div class="overview-card">
-                            <p>On Progress</p>
+                <div class="grid-layout-overview">
+                    <div class="overview-card">
+                        <p>Resolved</p>
 
-                            <h1><?= $inProgressCount; ?></h1>
-                        </div>
-                        <div class="overview-card">
-                            <p>Pending</p>
-
-                            <h1><?= $pendingCount; ?></h1>
-                        </div>
+                        <h1 id="completed"><?= $completedCount; ?></h1>
                     </div>
+                    <div class="overview-card">
+                        <p>On Progress</p>
+
+                        <h1><?= $inProgressCount; ?></h1>
+                    </div>
+                    <div class="overview-card">
+                        <p>Pending</p>
+
+                        <h1><?= $pendingCount; ?></h1>
+                    </div>
+                </div>
             </div>
 
-            <div class="task-box">
-                <h3>Task List</h3>
+            <hr>
+
+            <div class="box-box">
+                <div class="flex">
+                    <h3>Project List</h3>
+                    <a href="./addProject.php"> &#x002B; Add Project</a>
+                </div>
 
                 <table>
                     <thead>
                         <tr>
-                            <th scope="col">Account</th>
-                            <th scope="col">Due Date</th>
-                            <th scope="col">Amount</th>
-                            <th scope="col">Period</th>
+                            <th scope="col">Project Lead</th>
+                            <th scope="col">Project Name</th>
+                            <th scope="col">Project Created At</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td scope="row" data-label="Account">Visa - 3412</td>
+                            <td scope="row" data-label="Account">Visa - 3412</td>
                             <td data-label="Due Date">04/01/2016</td>
-                            <td data-label="Amount">$1,190</td>
-                            <td data-label="Period">03/01/2016 - 03/31/2016</td>
                         </tr>
                         <tr>
                             <td scope="row" data-label="Account">Visa - 6076</td>
+                            <td scope="row" data-label="Account">Visa - 6076</td>
                             <td data-label="Due Date">03/01/2016</td>
-                            <td data-label="Amount">$2,443</td>
-                            <td data-label="Period">02/01/2016 - 02/29/2016</td>
                         </tr>
                         <tr>
                             <td scope="row" data-label="Account">Corporate AMEX</td>
+                            <td scope="row" data-label="Account">Corporate AMEX</td>
                             <td data-label="Due Date">03/01/2016</td>
-                            <td data-label="Amount">$1,181</td>
-                            <td data-label="Period">02/01/2016 - 02/29/2016</td>
                         </tr>
                         <tr>
                             <td scope="row" data-label="Acount">Visa - 3412</td>
+                            <td scope="row" data-label="Acount">Visa - 3412</td>
                             <td data-label="Due Date">02/01/2016</td>
-                            <td data-label="Amount">$842</td>
-                            <td data-label="Period">01/01/2016 - 01/31/2016</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
+            <div class="box-box">
+                <div class="flex">
+                    <h3>Task List</h3>
+                    <a href="./addTask.php">&#x002B; Add Task</a>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Assignee</th>
+                            <th scope="col">Project Name</th>
+                            <th scope="col">Task</th>
+                            <th scope="col">Prioity</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Created At</th>
+                            <th scope="col">Updated At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row" data-label="ssignee">Visa - 3412</td>
+                            <td data-label="project-name">04/01/2016</td>
+                            <td data-label="task">$1,190</td>
+                            <td data-label="priority">03/01/2016 - 03/31/2016</td>
+                            <td data-label="status">03/01/2016 - 03/31/2016</td>
+                            <td data-label="created-at">03/01/2016 - 03/31/2016</td>
+                            <td data-label="updated-at">03/01/2016 - 03/31/2016</td>
+                        </tr>
+                        <tr>
+                            <td scope="row" data-label="assignee">Visa - 6076</td>
+                            <td data-label="project-name">03/01/2016</td>
+                            <td data-label="task">$2,443</td>
+                            <td data-label="priority">02/01/2016 - 02/29/2016</td>
+                            <td data-label="status">02/01/2016 - 02/29/2016</td>
+                            <td data-label="created-at">02/01/2016 - 02/29/2016</td>
+                            <td data-label="updated-at">02/01/2016 - 02/29/2016</td>
+                        </tr>
+                        <tr>
+                            <td scope="row" data-label="assignee">Corporate AMEX</td>
+                            <td data-label="project-name">03/01/2016</td>
+                            <td data-label="task">$1,181</td>
+                            <td data-label="priority">02/01/2016 - 02/29/2016</td>
+                            <td data-label="status">02/01/2016 - 02/29/2016</td>
+                            <td data-label="created-at">02/01/2016 - 02/29/2016</td>
+                            <td data-label="updated-at">02/01/2016 - 02/29/2016</td>
+                        </tr>
+                        <tr>
+                            <td scope="row" data-label="assignee">Visa - 3412</td>
+                            <td data-label="project-name">02/01/2016</td>
+                            <td data-label="task">$842</td>
+                            <td data-label="priority">01/01/2016 - 01/31/2016</td>
+                            <td data-label="status">01/01/2016 - 01/31/2016</td>
+                            <td data-label="created-at">01/01/2016 - 01/31/2016</td>
+                            <td data-label="updated-at">01/01/2016 - 01/31/2016</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <section id="pricing" class="card-box">
-            <div class="price-box"></div>
             <h1 class="title">Pricing</h1>
 
             <div class="grid-layout">
@@ -140,18 +198,10 @@ $priceList = json_decode(file_get_contents($priceListJsonPath), true);
                     echo '<strong>&#x24;' . htmlspecialchars($items['price'] ?? '0') . '</strong>/month';
                     echo '</p>';
 
-                    if (!isset($_SESSION['email'])) {
-                        if ($items['buttonText'] !== 'Sign Up') {
-                            echo '<button onclick="window.open(\'https://www.whatsapp.com\', \'_blank\')" class="price-button">' . htmlspecialchars($items['buttonText']) . '</button>';
-                        } else {
-                            echo '<button onclick="location.href=\'../page/register.php\'" class="price-button">' . htmlspecialchars($items['buttonText']) . '</button>';
-                        }
+                    if ($items['buttonText'] !== 'Sign Up') {
+                        echo '<button onclick="window.open(\'https://www.whatsapp.com\', \'_blank\')" class="price-button">' . htmlspecialchars($items['buttonText']) . '</button>';
                     } else {
-                        if ($items['buttonText'] !== 'Sign Up') {
-                            echo '<button onclick="window.open(\'https://www.whatsapp.com\', \'_blank\')" class="price-button">' . htmlspecialchars($items['buttonText']) . '</button>';
-                        } else {
-                            echo '<button onclick="location.href=\'#\'" class="price-button">Payment</button>';
-                        }
+                        echo '<button onclick="location.href=\'#\'" class="price-button">Payment</button>';
                     }
                     echo '</div>';
 
