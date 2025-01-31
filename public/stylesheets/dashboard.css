@@ -63,7 +63,6 @@ div.grid-layout-overview {
   margin-block: 1.5rem;
 }
 
-
 div.grid-layout div.card-list {
   border-radius: 8px;
   border: 2px solid rgba(0, 0, 0, 0.2);
@@ -82,7 +81,7 @@ section.card-pricing {
 }
 
 section.card-pricing h1.title {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 div.grid-layout div.pricing-block {
