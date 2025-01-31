@@ -1,11 +1,15 @@
 <?php
 session_start();
 include('../routes/routes.php');
+include('../routes/project-routes.php');
 
 if (!isset($_SESSION['email'])) {
     header("Location: ../index.php");
     exit();
 }
+
+$projects = getProjects();
+// $task = getTasks();
 
 $priceListJsonPath = '../lib/json/priceList.json';
 
@@ -90,30 +94,24 @@ $priceList = json_decode(file_get_contents($priceListJsonPath), true);
                         <tr>
                             <th scope="col">Project Lead</th>
                             <th scope="col">Project Name</th>
-                            <th scope="col">Project Created At</th>
+                            <th scope="col">Created At</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row" data-label="Account">Visa - 3412</td>
-                            <td scope="row" data-label="Account">Visa - 3412</td>
-                            <td data-label="Due Date">04/01/2016</td>
-                        </tr>
-                        <tr>
-                            <td scope="row" data-label="Account">Visa - 6076</td>
-                            <td scope="row" data-label="Account">Visa - 6076</td>
-                            <td data-label="Due Date">03/01/2016</td>
-                        </tr>
-                        <tr>
-                            <td scope="row" data-label="Account">Corporate AMEX</td>
-                            <td scope="row" data-label="Account">Corporate AMEX</td>
-                            <td data-label="Due Date">03/01/2016</td>
-                        </tr>
-                        <tr>
-                            <td scope="row" data-label="Acount">Visa - 3412</td>
-                            <td scope="row" data-label="Acount">Visa - 3412</td>
-                            <td data-label="Due Date">02/01/2016</td>
-                        </tr>
+                        <?php
+                        foreach ($projects as $project) {
+                            echo '<tr>';
+                            echo '<td scope="row" data-label="Account">' . htmlspecialchars($project['firstname']) . ' ' . htmlspecialchars($project['lastname']) .  '</td>';
+                            echo '<td scope="row" data-label="Account">'. htmlspecialchars($project['project_name']) .'</td>';
+                            echo '<td data-label="Due Date">' . htmlspecialchars($project['created_at']) . '</td>';
+                            echo '<td>';
+                            echo '<a href="./edit.php?user_id=?">Edit</a>';
+                            echo '<a href="./edit.php?user_id=?">Delete</a>';
+                            echo '</td>';
+                            echo '</tr>';
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
