@@ -1,55 +1,52 @@
 <?php
+include('../lib/connection.php');
 
-function getProjects()
+function addProjects($projectName, $user_id)
 {
     $connect = connectToDB();
-
-    // Check if the connection was successful
-    if ($connect === false) {
-        die('Database connection failed: ' . htmlspecialchars($connect->connect_error));
-    }
-
-    $query = "SELECT users.firstname, users.lastname, projects.project_name, projects.created_at 
-              FROM projects 
-              INNER JOIN users ON projects.user_id = users.user_id";
-
+    
+    $query = "INSERT INTO projects(user_id, project_name) VALUES (?, ?)";
     $stmt = $connect->prepare($query);
-    if ($stmt === false) {
-        die('Prepare failed: ' . htmlspecialchars($connect->error));
+    $stmt->bind_param('is', $user_id, $projectName);    
+
+    if ($stmt->execute()) {
+        header('Location: ../page/dashboard.php?');
+        exit();
+    } else {
+        header("Location: ../page/addProject.php?msg=failed_to_add_project");
+        exit();
     }
 
-    // Execute the statement
+    $stmt->close();
+    $connect->close();
+}
+
+function deleteProject($project_id, $user_id)
+{
+    $connect = connectToDB();
+    $query = "DELETE FROM projects WHERE project_id = ? AND user_id = ?"; // Corrected the query
+    $stmt = $connect->prepare($query);
+
+    $stmt->bind_param('ii', $project_id, $user_id);
     if (!$stmt->execute()) {
         die('Execute failed: ' . htmlspecialchars($stmt->error));
     }
 
-    // Get the result
-    $result = $stmt->get_result();
-
-    // Fetch all results as an associative array
-    $projects = $result->fetch_all(MYSQLI_ASSOC);
-
-    // Free result and close statement
-    $result->free();
     $stmt->close();
     $connect->close();
-
-    return $projects;
 }
 
-function addProjects($userId, $projectName)
+function updateProject($project_id, $project_name, $user_id)
 {
     $connect = connectToDB();
-    $query = "INSERT INTO projects (project_id, user_id, project_name, created_at) VALUES (?, ?, ?, ?)";
-}
+    $query = "UPDATE projects SET project_name = ? WHERE project_id = ? AND user_id = ?";
+    $stmt = $connect->prepare($query);
 
-function deleteProject()
-{
-    $connect = connectToDB();
-    $query = "DELETE FROM projects WHERE ";
-}
+    $stmt->bind_param('sii', $project_name, $project_id, $user_id); // 'sii' for string, integer, integer
+    if (!$stmt->execute()) {
+        die('Execute failed: ' . htmlspecialchars($stmt->error));
+    }
 
-function updateProject()
-{
-    $connect = connectToDB();
+    $stmt->close();
+    $connect->close();
 }

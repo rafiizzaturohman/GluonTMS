@@ -1,0 +1,115 @@
+/* ADD PROJECT START */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-block: 1rem;
+  }
+  
+  .input-group input {
+    background-color: rgba(169, 169, 169, 0.232);
+    border: none;
+    border-radius: 6px;
+    padding: 6px;
+    width: 100%;
+    max-width: 80rem;
+    transition: all 0.3s ease;
+  }
+  
+  .input-group input:hover {
+    background-color: rgba(169, 169, 169, 0.332);
+    transform: translateY(-15%);
+  }
+  
+  .input-group input:focus {
+    background-color: rgba(169, 169, 169, 0.432);
+  }
+  
+  .input-group select {
+    background-color: rgba(169, 169, 169, 0.232);
+    border: none;
+    border-radius: 6px;
+    padding: 6px;
+    width: 100%;
+    max-width: 80rem;
+    transition: all 0.3s ease;
+  }
+  
+  button.add-btn {
+    background-color: #34efdf;
+    border-radius: 8px;
+    padding: 6px 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+  }
+  
+  button.add-btn:hover {
+    background-color: transparent;
+  }
+  
+  button.add-btn:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #34efdf;
+    border-radius: 12px;
+    transition: all 0.4s ease;
+  }
+  
+  button.add-btn:hover:before {
+    width: 100%;
+  }
+  
+  button.add-btn:before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  div.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  a.back-btn {
+    background-color: #ef3434e7;
+    border-radius: 8px;
+    padding: 6px 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    text-decoration: none;
+    color: black;
+  }
+  
+  a.back-btn:hover {
+    background-color: transparent;
+  }
+  
+  a.back-btn:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #ef3434e7;
+    border-radius: 12px;
+    transition: all 0.4s ease;
+  }
+  
+  a.back-btn:hover:before {
+    width: 100%;
+  }
+  
+  a.back-btn:before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* ADD PROJECT END */
+  

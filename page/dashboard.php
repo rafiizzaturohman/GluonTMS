@@ -1,7 +1,6 @@
 <?php
 session_start();
 include('../routes/routes.php');
-include('../routes/project-routes.php');
 
 if (!isset($_SESSION['email'])) {
     header("Location: ../index.php");
@@ -9,7 +8,7 @@ if (!isset($_SESSION['email'])) {
 }
 
 $projects = getProjects();
-// $task = getTasks();
+$tasks = getTasks();
 
 $priceListJsonPath = '../lib/json/priceList.json';
 
@@ -18,6 +17,7 @@ if ($priceListJsonPath === false) {
 }
 
 $priceList = json_decode(file_get_contents($priceListJsonPath), true);
+
 ?>
 
 <!DOCTYPE html>
@@ -98,16 +98,17 @@ $priceList = json_decode(file_get_contents($priceListJsonPath), true);
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         <?php
                         foreach ($projects as $project) {
                             echo '<tr>';
                             echo '<td scope="row" data-label="Account">' . htmlspecialchars($project['firstname']) . ' ' . htmlspecialchars($project['lastname']) .  '</td>';
-                            echo '<td scope="row" data-label="Account">'. htmlspecialchars($project['project_name']) .'</td>';
+                            echo '<td scope="row" data-label="Account">' . htmlspecialchars($project['project_name']) . '</td>';
                             echo '<td data-label="Due Date">' . htmlspecialchars($project['created_at']) . '</td>';
-                            echo '<td>';
-                            echo '<a href="./edit.php?user_id=?">Edit</a>';
-                            echo '<a href="./edit.php?user_id=?">Delete</a>';
+                            echo '<td class="action">';
+                            echo '<a class="edit-button" href="./editProject.php?project_id=' . htmlspecialchars($project['project_id']) .  '">Edit</a>';
+                            echo '<button class="delete-button" onclick="deleteProject(' . htmlspecialchars($project['project_id']) . ', ' . htmlspecialchars($project['user_id']) . ')">Delete</button>';
                             echo '</td>';
                             echo '</tr>';
                         }
@@ -115,7 +116,7 @@ $priceList = json_decode(file_get_contents($priceListJsonPath), true);
                     </tbody>
                 </table>
             </div>
-
+            <!-- <button onclick="$deleteProject"></button> -->
             <div class="box-box">
                 <div class="flex">
                     <h3>Task List</h3>
@@ -132,45 +133,26 @@ $priceList = json_decode(file_get_contents($priceListJsonPath), true);
                             <th scope="col">Status</th>
                             <th scope="col">Created At</th>
                             <th scope="col">Updated At</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row" data-label="ssignee">Visa - 3412</td>
-                            <td data-label="project-name">04/01/2016</td>
-                            <td data-label="task">$1,190</td>
-                            <td data-label="priority">03/01/2016 - 03/31/2016</td>
-                            <td data-label="status">03/01/2016 - 03/31/2016</td>
-                            <td data-label="created-at">03/01/2016 - 03/31/2016</td>
-                            <td data-label="updated-at">03/01/2016 - 03/31/2016</td>
-                        </tr>
-                        <tr>
-                            <td scope="row" data-label="assignee">Visa - 6076</td>
-                            <td data-label="project-name">03/01/2016</td>
-                            <td data-label="task">$2,443</td>
-                            <td data-label="priority">02/01/2016 - 02/29/2016</td>
-                            <td data-label="status">02/01/2016 - 02/29/2016</td>
-                            <td data-label="created-at">02/01/2016 - 02/29/2016</td>
-                            <td data-label="updated-at">02/01/2016 - 02/29/2016</td>
-                        </tr>
-                        <tr>
-                            <td scope="row" data-label="assignee">Corporate AMEX</td>
-                            <td data-label="project-name">03/01/2016</td>
-                            <td data-label="task">$1,181</td>
-                            <td data-label="priority">02/01/2016 - 02/29/2016</td>
-                            <td data-label="status">02/01/2016 - 02/29/2016</td>
-                            <td data-label="created-at">02/01/2016 - 02/29/2016</td>
-                            <td data-label="updated-at">02/01/2016 - 02/29/2016</td>
-                        </tr>
-                        <tr>
-                            <td scope="row" data-label="assignee">Visa - 3412</td>
-                            <td data-label="project-name">02/01/2016</td>
-                            <td data-label="task">$842</td>
-                            <td data-label="priority">01/01/2016 - 01/31/2016</td>
-                            <td data-label="status">01/01/2016 - 01/31/2016</td>
-                            <td data-label="created-at">01/01/2016 - 01/31/2016</td>
-                            <td data-label="updated-at">01/01/2016 - 01/31/2016</td>
-                        </tr>
+                        <?php foreach ($tasks as $task) { ?>
+                            <tr>
+                                <td scope="row" data-label="ssignee"><?= htmlspecialchars($task['firstname']) ?> <?= htmlspecialchars($task['lastname']) ?></td>
+                                <td data-label="project-name"><?= htmlspecialchars($task['project_name']) ?></td>
+                                <td data-label="task"><?= htmlspecialchars($task['title']) ?></td>
+                                <td data-label="priority"><?= htmlspecialchars($task['priority']) ?></td>
+                                <td data-label="status"><?= htmlspecialchars($task['status']) ?></td>
+                                <td data-label="created-at"><?= htmlspecialchars($task['created_at']) ?></td>
+                                <td data-label="updated-at"><?= htmlspecialchars($task['updated_at']) ?></td>
+                                <td data-label="updated-at">
+                                    <a class="edit-button" href="./editTask.php?task_id=<?= htmlspecialchars($task['id']) ?>">Edit</a>
+
+                                    <button class="delete-button" onclick="deleteProject('<?= htmlspecialchars($task['project_id']) ?>, <?= htmlspecialchars($project['user_id']) ?>, <?= htmlspecialchars($task['id']) ?>')">Delete</button>
+                                </td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
